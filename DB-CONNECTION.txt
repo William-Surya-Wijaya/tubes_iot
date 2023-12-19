@@ -1,0 +1,4 @@
+HOST : williamsuryawijaya.my.id
+DB : williams_iot
+USERNAME : williams_iot
+PASS : betulkae
