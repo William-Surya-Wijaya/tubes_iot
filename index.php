@@ -17,6 +17,10 @@ switch ($route) {
         include './view/dashboard.php';
         break;
 
+    case 'insert-sensor-data':
+        postSensorData($_POST);
+        break;
+
     default:
     $route = 'dashboard';
         $result = getResultData();
