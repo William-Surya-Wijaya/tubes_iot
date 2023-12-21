@@ -1,0 +1,23 @@
+int emgPin = A0;
+int emgValue = 0;
+bool startMeasuring = false;
+
+void setup() {
+  Serial.begin(9600);
+}
+
+void loop() {
+  if (Serial.available() > 0) {
+    char command = Serial.read();
+    if (command == 's') {  // 's' untuk start
+      startMeasuring = true;
+    } else if (command == 'e') {  // 'e' untuk end
+      startMeasuring = false;
+    }
+  }
+
+  if (startMeasuring) {
+    emgValue = analogRead(emgPin);
+    Serial.println(emgValue);
+  }
+}
