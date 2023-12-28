@@ -17,14 +17,18 @@ $subroute = isset($_GET['subroute']) ? $_GET['subroute'] : '';
 // echo "Subroute: $subroute";
 // die();
 
+// Establish database connection
+require_once './model/Connection.php';
+
+
 switch ($route) {
     case 'dashboard':
-        $result = getResultData();
+        $result = getResultData($pdo);
         include './view/dashboard.php';
         break;
 
     case 'insert-sensor-data':
-        postSensorData($_POST, $_SESSION);
+        postSensorData($_POST, $_SESSION,$pdo);
         break;
 
     case 'start-fetching':
@@ -39,9 +43,9 @@ switch ($route) {
 
     default:
     $route = 'dashboard';
-        $exercise = getMuscleData();
-        $muscle = getExerciseData();
-        $result = getResultData();
+        $exercise = getMuscleData($pdo);
+        $muscle = getExerciseData($pdo);
+        $result = getResultData($pdo);
         include './view/dashboard.php';
         break;
 }

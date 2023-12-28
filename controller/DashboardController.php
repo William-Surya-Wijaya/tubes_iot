@@ -1,15 +1,17 @@
-<?php 
+<?php
 
 require_once './model/DataModel.php';
+require_once './model/Connection.php';
 
-function getResultData(){
-  require_once './model/Connection.php';
+
+
+
+function getResultData($pdo){
   return getListData($pdo);
 }
 
-function postSensorData($value, $session){
-  require_once './model/Connection.php';
-  return insertSensorData($value, $session, $pdo);
+function postSensorData($pdo, $value, $session){
+  return insertSensorData($pdo, $value, $session);
 }
 
 function editFetchFlag($value){
@@ -18,12 +20,10 @@ function editFetchFlag($value){
   return $return;
 }
 
-function getMuscleData(){
-  require_once './model/Connection.php';
+function getMuscleData($pdo){
   return fetchMuscleData($pdo);
 }
 
-function getExerciseData(){
-  require_once './model/Connection.php';
+function getExerciseData($pdo){
   return fetchExerciseData($pdo);
 }
