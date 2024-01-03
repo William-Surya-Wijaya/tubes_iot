@@ -1,45 +1,45 @@
-# Jangan lupa install library dulu
-
 import serial
-import requests
 import time
+import requests
 
-def read_flag():
-    try:
-        with open('fetch_flag.txt', 'r') as file:
-            return file.read().strip()
-    except FileNotFoundError:
-        return 'stop'
+# Inisialisasi koneksi serial dengan Arduino
+ser = serial.Serial('COM7', 9600, timeout=1)
 
-def start_measurement():
-    ser.write(b's')  # Mengirim perintah 'start' ke Arduino
+def set_arduino_command(command):
+    # Kirim perintah ke Arduino (misalnya, 's' untuk start atau 'e' untuk stop)
+    ser.write(command.encode())
 
-def stop_measurement():
-    ser.write(b'e')
+def read_fetch_flag():
+    # Baca isi file fetch_flag.txt
+    with open('fetch_flag.txt', 'r') as file:
+        return file.read().strip()
 
-# Mengatur koneksi Serial
-ser = serial.Serial('COM9', 9600)
+def main():
+    while True:
+        # Baca isi file fetch_flag.txt
+        flag_value = read_fetch_flag()
+        print(flag_value)
 
-while True:
-    flag = read_flag()
+        # Set command Arduino berdasarkan isi file fetch_flag.txt
+        if flag_value == 'start':
+            set_arduino_command('s')
+        elif flag_value == 'stop':
+            set_arduino_command('e')
 
-    if flag == 'start':
-        start_measurement()
-        time.sleep(10)
 
-        while True:
-            if ser.in_waiting > 0:
-                emg_value = ser.readline().decode('utf-8').rstrip()
-                emg_time = time.strftime("%Y-%m-%d %H:%M:%S")
-                response = requests.post('http://localhost/insert-sensor-data', data={'emgValue': emg_value, 'emgTime': emg_time})
-                print(response.text)
-            else :
-                stop_measurement()
-    elif flag == 'stop':
-        # Opsional: Tindakan ketika diinstruksikan untuk berhenti
-        pass
+        if(flag_value == 'stop'):
+            continue
+        # Baca data dari Arduino
+        emg_value = ser.readline().decode('utf-8').rstrip()
+        emg_time = time.strftime("%Y-%m-%d %H:%M:%S")
 
-    time.sleep(1)
+        # Kirim data ke database melalui API
+        api_url = 'http://localhost/tubes_iot/Dashboard/getDataFromArduino'
+        data = {'emgValue': emg_value, 'emgTime': emg_time}
+        response = requests.post(api_url, data=data)
 
-#tunjukan efektif atau tidak
-#tambah data gerakan
+        # Tunggu sejenak sebelum membaca ulang
+        time.sleep(1)
+
+if __name__ == "__main__":
+    main()
