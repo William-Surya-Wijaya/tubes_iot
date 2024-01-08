@@ -1,0 +1,208 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.row{
+    display:flex;
+    width: 100%;
+    height: 100%
+}
+
+/* Banner Column */
+.banner-col {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    height: 100%;
+    background: url('../images/compro/background_login.png');
+    background-position: center;
+    background-size: cover;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner-title{
+    font-weight: bold;
+    font-size: 36px;
+    color: white;
+    margin: 0 0 15px 0;
+}
+
+.banner-desc{
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.6);
+    width: 60%;
+    text-align: center;
+    margin: 0 0 40px 0;
+}
+
+.button{
+    border-radius: 100px;
+    height: 40px;
+    width: 200px;
+    color: white;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.muted-button{
+    background-color: transparent;
+    border: 1px solid white;
+    cursor: pointer;
+}
+
+/* Form Column */
+.form-col{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    height: 100%;
+    justify-content: center;
+    align-items: center
+}
+
+.form-title{
+    font-size: 36px;
+    font-weight: bold;
+    color: #0497e7;
+    margin: 0 0 15px 0;
+}
+
+.form-field{
+    display: flex;
+}
+
+.primary-button{
+    border: 1px solid transparent;
+    background-color: #0497e7;
+    cursor: pointer;
+}
+
+.form-group{
+    background-color: #eef3f5;
+    display: flex;
+    width: 30vw;
+    border-radius: 5px;
+    margin: 15px 0;
+    transition: 0.25s ease-in-out;
+}
+
+.form-hint{
+    font-size: 20px;
+    color: #a4a4a4;
+    margin: 0 0 30px 0;
+}
+
+.field-hint{
+    width: 100%;
+    display: flex;
+    justify-content: right;
+    color: #a4a4a4;
+}
+
+.field-col{
+    margin: 0 0 30px 0;
+}
+
+input{
+    border: 0;
+    background-color: transparent;
+    width: 100%;
+    font-size: 18px;
+    transition: 0.25s ease-in-out;
+    color: #616161;
+}
+
+input::placeholder{
+    color: #a4a4a4;
+}
+
+input:focus{
+    outline: none;
+}
+
+.icon{
+    aspec-ratio: 1/1;
+    font-size: 18px;
+    color: #a4a4a4;
+    margin: 14px;
+    transition: 0.25s ease-in-out;
+}
+
+.icon:hover{
+    color: #4eb1e7;
+}
+
+.banner-logo{
+    width: 136px;
+    height: 37px;
+    position: fixed;
+    z-index: 5;
+    bottom: 80px;
+}
+
+.banner-footer{
+    position: fixed;
+    z-index: 4;
+    bottom: 50px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.input-focused .icon, .input-focused input {
+    color: #4eb1e7;
+}
+
+input:focus {
+    outline: none;
+}
+
+.link{
+    color: #4eb1e7;
+    transition: 0.25s ease-in-out;
+    text-decoration:none;
+}
+
+.link:hover{
+    color: #0497e7;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+/* profile page */
+.profile-photo{
+    width: 150px;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 500px
+}
+
+.form-button{
+    display: flex;
+    transition: 0.25 ease-in-out;
+    font-size: 18px;
+    color: #a4a4a4;
+    margin: 6px;
+    padding: 8px;
+    transition: 0.25s ease-in-out;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    white-space: nowrap;
+}
+
+.form-button:hover{
+    color: #4eb1e7;
+    background-color: #e0eff5;
+    cursor: pointer;
+}
+
+.form-button:hover > *{
+    color: #4eb1e7;
+}
+
+.h-100{
+    min-height: 100vh !important;
+}
