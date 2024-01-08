@@ -54,3 +54,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 $route['default_controller'] = 'Dashboard';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+
+$route['login'] = 'auth/login';
+$route['login/authenticate'] = 'auth/authenticate';
+$route['register'] = 'auth/register';
+$route['register/save'] = 'auth/save';

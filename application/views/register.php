@@ -15,7 +15,7 @@
                 <div class="banner-footer">IOT - EMG Data Visualization</div>
                 <div class="banner-title">Sudah Bergabung?</div>
                 <div class="banner-desc">Apakah anda sudah bergabung dan memiliki akun partnership ?</div>
-                <a href="<?php echo base_url('Login');?>"><button class="button muted-button">MASUK</button></a>
+                <a href="<?php echo base_url('login');?>"><button class="button muted-button">MASUK</button></a>
             </div>
             <div class="form-col">
                 <div class="form-title">Gabung Sekarang</div>
@@ -23,7 +23,7 @@
                     {{-- buat medsos --}}
                 </div>
                 <div class="form-hint">Masukan data data Anda</div>
-                <form class="field-col" id="registration-form" action="<?php echo base_url('Register-Process');?>" method="POST">
+                <form class="field-col" id="registration-form" action="<?php echo base_url('register/save');?>" method="POST">
                     <div class="form-group">
                         <i class="icon fa fa-user"></i>
                         <input type="string" name="username" id="username" placeholder="Username" required/>
@@ -37,7 +37,7 @@
                         <i class="icon fa-solid fa-lock"></i>
                         <input type="password" id="confirm-password" placeholder="Konfirmasi Password" min="8" required/>
                     </div>
-                    <div class="field-hint">Sudah punya akun?&nbsp;<a href="<?php echo base_url('Login');?>" class="link">Masuk</a></div>
+                    <div class="field-hint">Sudah punya akun?&nbsp;<a href="<?php echo base_url('login');?>" class="link">Masuk</a></div>
                     <button class="button primary-button" id="submit-button">GABUNG</button>
                 </form>
             </div>
