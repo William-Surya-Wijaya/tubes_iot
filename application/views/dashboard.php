@@ -8,16 +8,16 @@
   
 
   
-  <link href="<?php echo base_url();?>assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="<?php echo base_url();?>assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="<?php echo base_url();?>assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="<?php echo base_url();?>assets/vendor/quill/quill.snow.css" rel="stylesheet">
-  <link href="<?php echo base_url();?>assets/vendor/quill/quill.bubble.css" rel="stylesheet">
-  <link href="<?php echo base_url();?>assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="<?php echo base_url();?>assets/vendor/simple-datatables/style.css" rel="stylesheet">
+  <link href="<?php echo base_url(); ?>assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="<?php echo base_url(); ?>assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="<?php echo base_url(); ?>assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="<?php echo base_url(); ?>assets/vendor/quill/quill.snow.css" rel="stylesheet">
+  <link href="<?php echo base_url(); ?>assets/vendor/quill/quill.bubble.css" rel="stylesheet">
+  <link href="<?php echo base_url(); ?>assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="<?php echo base_url(); ?>assets/vendor/simple-datatables/style.css" rel="stylesheet">
 
  
-  <link href="<?php echo base_url();?>assets/css/style.css" rel="stylesheet">
+  <link href="<?php echo base_url(); ?>assets/css/style.css" rel="stylesheet">
 
 </head>
 
@@ -30,6 +30,21 @@
         <img  src="assets/img/logo.png" alt="">
         <span  class="d-none d-lg-block">EMG Data Visualization</span>
       </a>
+    
+      
+      <div class="user-info ml-auto d-flex align-items-center">
+          <!-- Tambahkan elemen berikut untuk menampilkan nama user -->
+          <i class="bi-person-circle"></i>
+          <span class="ps-2"><?php echo $this->session->userdata('username'); ?></span>
+      </div>
+
+
+
+
+
+     
+    </div>
+    
       
     </div><!-- End Logo -->
 
@@ -63,7 +78,7 @@
 
                 
                 <div  class="card-body">
-                  <form class="card-title" action=<?php echo base_url('Dashboard/inputDataLatihan');?>  method="post">
+                  <form class="card-title" action=<?php echo base_url('Dashboard/inputDataLatihan'); ?>  method="post">
                     <label  for="dropdown-otot">Pilih Otot:</label>
 
                     <div  class="form-floating mb-3">
@@ -186,7 +201,7 @@
             </div>
 
             <div class="card-body">
-              <h5  class="card-title">Recent Activity <span>| Today</span></h5>
+              <h5  class="card-title">Recent Activity for <?php echo $this->session->userdata('username'); ?> <span>| Today</span></h5>
 
               <div class="activity">
                 
@@ -200,11 +215,11 @@
                   echo "<p i>Exercise: " . $value['exercise'] . "</P>";
                   echo "<p >Rata-rata Value: " . $value['rata_rata'] . "</P>";
                   //jika keefektivan > 150
-                    if ($value['rata_rata'] > 150) {
-                        echo "<p >Keefektivitasan: <span class='text-success'>" . "Efektif" . "</span></P>";
-                    } else {
-                        echo "<p >Keefektivitasan: <span class='text-danger'>" . "Tidak Efektif". "</span></P>";
-                    }
+                  if ($value['rata_rata'] > 150) {
+                    echo "<p >Keefektivitasan: <span class='text-success'>" . "Efektif" . "</span></P>";
+                  } else {
+                    echo "<p >Keefektivitasan: <span class='text-danger'>" . "Tidak Efektif" . "</span></P>";
+                  }
                   echo "</div>";
                   echo "</div>";
                 }
@@ -219,8 +234,12 @@
           </div><!-- End Recent Activity -->
           
           <div  class="col-xl-12 d-flex justify-content-center">
-                    <a href=<?php echo base_url('Dashboard/hapus');?> id="resetbutton" class="btn btn-primary row mt-2 ms-5">RESET HISTORY ACTIVITY</a>
+                    <a href=<?php echo base_url('Dashboard/hapus'); ?> id="resetbutton" class="btn btn-primary row mt-2 ms-5">RESET HISTORY ACTIVITY</a>
+                    <a href='<?php echo base_url("auth/logout"); ?>'  class="btn btn-danger row mt-2 ms-5">Logout</a>
+
                   </div>
+
+
         </div><!-- End Right side columns -->
 
       </div>
@@ -244,17 +263,17 @@
       class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
-  <script src="<?php echo base_url();?>assets/vendor/apexcharts/apexcharts.min.js"></script>
-  <script src="<?php echo base_url();?>assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="<?php echo base_url();?>assets/vendor/chart.js/chart.umd.js"></script>
-  <script src="<?php echo base_url();?>assets/vendor/echarts/echarts.min.js"></script>
-  <script src="<?php echo base_url();?>assets/vendor/quill/quill.min.js"></script>
-  <script src="<?php echo base_url();?>assets/vendor/simple-datatables/simple-datatables.js"></script>
-  <script src="<?php echo base_url();?>assets/vendor/tinymce/tinymce.min.js"></script>
-  <script src="<?php echo base_url();?>assets/vendor/php-email-form/validate.js"></script>
+  <script src="<?php echo base_url(); ?>assets/vendor/apexcharts/apexcharts.min.js"></script>
+  <script src="<?php echo base_url(); ?>assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="<?php echo base_url(); ?>assets/vendor/chart.js/chart.umd.js"></script>
+  <script src="<?php echo base_url(); ?>assets/vendor/echarts/echarts.min.js"></script>
+  <script src="<?php echo base_url(); ?>assets/vendor/quill/quill.min.js"></script>
+  <script src="<?php echo base_url(); ?>assets/vendor/simple-datatables/simple-datatables.js"></script>
+  <script src="<?php echo base_url(); ?>assets/vendor/tinymce/tinymce.min.js"></script>
+  <script src="<?php echo base_url(); ?>assets/vendor/php-email-form/validate.js"></script>
 
   <!-- Template Main JS File -->
- <script src="<?php echo base_url();?>assets/js/main.js"></script>
+ <script src="<?php echo base_url(); ?>assets/js/main.js"></script>
 <script>
   // Data dari PHP
   const dataList = <?php echo json_encode($dataList); ?>;

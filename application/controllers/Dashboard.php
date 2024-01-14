@@ -24,6 +24,10 @@ class Dashboard extends CI_Controller {
 
         // Load the model in the constructor
         $this->load->model('My_model');
+		//jika session tidak ada arahkan ke Auth
+		if(!$this->session->userdata('username')){
+			redirect('auth');
+		}
     }
 	
 
@@ -98,6 +102,8 @@ class Dashboard extends CI_Controller {
 	public function getDataFromArduino(){
 		$value['emgValue'] = $this->input->post('emgValue');
         $value['emgTime'] = $this->input->post('emgTime');
+		//ambil id_user dari session
+		$session['id_user'] = $this->session->userdata('id_user');
 		$query = $this->db->query("SELECT MAX(id) AS max_id FROM dataPercobaan");
 		$session['id_percobaan'] = $query->row()->max_id;
 		$query = $this->db->query("SELECT id_exercise, id_muscle FROM sementara ORDER BY id DESC LIMIT 1");

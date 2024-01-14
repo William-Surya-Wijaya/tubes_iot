@@ -15,15 +15,21 @@
                 <div class="banner-footer">IOT - EMG Data Visualization</div>
                 <div class="banner-title">Selamat Datang!</div>
                 <div class="banner-desc">Belum memiliki akun partnership dan tertarik untuk bergabung dengan kami ?</div>
-                <a href="<?php echo base_url('register');?>"><button class="button muted-button">GABUNG</button></a>
+                <a href="<?php echo base_url('auth/daftar');?>"><button class="button muted-button">GABUNG</button></a>
             </div>
             <div class="form-col">
+                <!--Tampilkan pesan error-->
+                <?php if ($this->session->flashdata('error')): ?>
+                    <div class="alert alert-danger" role="alert">
+                        <?php echo $this->session->flashdata('error'); ?>
+                    </div>
+                <?php endif; ?>
                 <div class="form-title">Masuk Ke Akunmu</div>
                 <div class="min-row">
                     {{-- buat medsos --}}
                 </div>
                 <div class="form-hint">Masukan username dan password Anda</div>
-                <form class="field-col" id="login-form" action="<?php echo base_url('login/authenticate');?>" method="POST">
+                <form class="field-col" id="login-form" action="<?php echo base_url('auth/login');?>" method="POST">
                     <div class="form-group">
                         <i class="icon fa fa-user"></i>
                         <input type="text" name="username" id="username" placeholder="Username" required/>
@@ -33,7 +39,7 @@
                         <input type="password" name="password" id="password" placeholder="Password" required/>
                         <i id="see-password" class="icon fa fa-eye-slash"></i>
                     </div>
-                    <div class="field-hint">Belum punya akun?&nbsp;<a href="<?php echo base_url('register');?>" class="link">Gabung Sekarang</a></div>
+                    <div class="field-hint">Belum punya akun?&nbsp;<a href="<?php echo base_url('auth/daftar');?>" class="link">Gabung Sekarang</a></div>
                     <button class="button primary-button" id="submit-button">MASUK</button>
                 </form>
             </div>

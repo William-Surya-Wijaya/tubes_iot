@@ -17,11 +17,15 @@ class My_model extends CI_Model {
 
 public function getEmgDataWithExerciseAndMuscle() {
 
+        //ambil id_user
+        $id_user = $this->session->userdata('id_user');
+
         $this->db->select('exercise, muscle, timestamp, AVG(emg_value) as rata_rata');
         $this->db->from('dataPercobaan');
         $this->db->join('emgData', 'dataPercobaan.id = emgData.id_percobaan');
         $this->db->join('exercise', 'exercise.id_exercise = emgData.id_exercise');
         $this->db->join('muscle', 'muscle.id_muscle = emgData.id_muscle');
+        $this->db->where('emgData.id_user', $id_user);
         $this->db->group_by(['emgData.id_percobaan', 'exercise', 'muscle']);
 
         $query = $this->db->get();
@@ -34,7 +38,8 @@ public function getEmgDataWithExerciseAndMuscle() {
             'id_percobaan' => $session['id_percobaan'],
             'id_muscle' => $session['id_muscle'],
             'emg_value' => $value['emgValue'],
-            'emg_time' => $value['emgTime']
+            'emg_time' => $value['emgTime'],
+            'id_user' => $session['id_user']
         );
 
         $this->db->insert('emgData', $data);

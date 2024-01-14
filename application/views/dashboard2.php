@@ -186,7 +186,7 @@
             </div>
 
             <div class="card-body">
-              <h5  class="card-title">Recent Activity <span>| Today</span></h5>
+              <h5  class="card-title">Recent Activity for <?php echo $this->session->userdata('username') ;?> <span>| Today</span></h5>
 
               <div class="activity">
                 
@@ -219,6 +219,8 @@
           </div><!-- End Recent Activity -->
           
           <div  class="col-xl-12 d-flex justify-content-center">
+            <a href='<?php echo base_url("auth/logout");?>'  class="btn btn-danger row mt-2 ms-5">Logout</a>
+
                   </div>
         </div><!-- End Right side columns -->
 
