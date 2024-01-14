@@ -33,7 +33,6 @@
     
       
       <div class="user-info ml-auto d-flex align-items-center">
-          <!-- Tambahkan elemen berikut untuk menampilkan nama user -->
           <i class="bi-person-circle"></i>
           <span class="ps-2"><?php echo $this->session->userdata('username'); ?></span>
       </div>

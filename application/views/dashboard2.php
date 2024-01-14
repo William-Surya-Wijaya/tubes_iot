@@ -30,6 +30,10 @@
         <img  src="assets/img/logo.png" alt="">
         <span  class="d-none d-lg-block">EMG Data Visualization</span>
       </a>
+      <div class="user-info ml-auto d-flex align-items-center">
+          <i class="bi-person-circle"></i>
+          <span class="ps-2"><?php echo $this->session->userdata('username'); ?></span>
+      </div>
       
     </div><!-- End Logo -->
 
