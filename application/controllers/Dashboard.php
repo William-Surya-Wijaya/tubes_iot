@@ -20,14 +20,8 @@ class Dashboard extends CI_Controller {
 	 */
 	public function __construct() {
         parent::__construct();
-		
-
         // Load the model in the constructor
         $this->load->model('My_model');
-		//jika session tidak ada arahkan ke Auth
-		if(!$this->session->userdata('username')){
-			redirect('auth');
-		}
     }
 	
 
