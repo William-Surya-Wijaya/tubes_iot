@@ -41,6 +41,12 @@ class Auth extends CI_Controller {
         }
     }
     public function logout(){
+        $this->load->helper('file');
+        $file_path =  FCPATH . 'session_id.txt';
+
+		$value = '';
+
+        write_file($file_path, $value);
         $this->session->set_userdata('username',null);     
         $this->session->set_userdata('id_user',null);  
         redirect('auth');
