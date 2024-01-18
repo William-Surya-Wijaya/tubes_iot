@@ -23,14 +23,7 @@ class Dashboard extends CI_Controller {
         // Load the model in the constructor
         $this->load->model('My_model');
 
-		$this->load->helper('file');
-        $file_path =  FCPATH . 'session_id.txt';
-
-		$const_id_user = read_file($file_path);
-
-		if($id_user != ""){
-        	$this->session->set_userdata('id_user',$const_id_user());
-		} else {
+		if(!$this->session->userdata('username')){
 			redirect('auth');
 		}
     }
@@ -116,7 +109,7 @@ class Dashboard extends CI_Controller {
 		$value['emgValue'] = $this->input->post('emgValue');
         $value['emgTime'] = $this->input->post('emgTime');
 		//ambil id_user dari session
-		$session['id_user'] = $this->session->userdata('id_user');
+		$session['id_user'] = '3';
 		$query = $this->db->query("SELECT MAX(id) AS max_id FROM dataPercobaan");
 		$session['id_percobaan'] = $query->row()->max_id;
 		$query = $this->db->query("SELECT id_exercise, id_muscle FROM sementara ORDER BY id DESC LIMIT 1");
