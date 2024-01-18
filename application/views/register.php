@@ -20,7 +20,6 @@
             <div class="form-col">
                 <div class="form-title">Gabung Sekarang</div>
                 <div class="min-row">
-                    {{-- buat medsos --}}
                 </div>
                 <div class="form-hint">Masukan data data Anda</div>
                 <form class="field-col" id="registration-form" action="<?php echo base_url('auth/register');?>" method="POST">

@@ -26,7 +26,6 @@
                 <?php endif; ?>
                 <div class="form-title">Masuk Ke Akunmu</div>
                 <div class="min-row">
-                    {{-- buat medsos --}}
                 </div>
                 <div class="form-hint">Masukan username dan password Anda</div>
                 <form class="field-col" id="login-form" action="<?php echo base_url('auth/login');?>" method="POST">
