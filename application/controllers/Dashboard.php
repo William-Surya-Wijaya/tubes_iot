@@ -23,7 +23,7 @@ class Dashboard extends CI_Controller {
         // Load the model in the constructor
         $this->load->model('My_model');
 
-		if(getSessionId() != ''){
+		if(!$this->session->userdata('id_user')){
         	$this->session->set_userdata('id_user',getSessionId());
 		} else {
 			redirect('auth');
