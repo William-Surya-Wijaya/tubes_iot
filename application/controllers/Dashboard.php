@@ -23,8 +23,13 @@ class Dashboard extends CI_Controller {
         // Load the model in the constructor
         $this->load->model('My_model');
 
-		if(!$this->session->userdata('id_user')){
-        	$this->session->set_userdata('id_user',getSessionId());
+		$this->load->helper('file');
+        $file_path =  FCPATH . 'session_id.txt';
+
+		$const_id_user = read_file($file_path);
+
+		if($id_user != ""){
+        	$this->session->set_userdata('id_user',$const_id_user());
 		} else {
 			redirect('auth');
 		}
@@ -38,13 +43,6 @@ class Dashboard extends CI_Controller {
 
         write_file($file_path, $value);
     }
-
-	public function getSessionId(){
-		$this->load->helper('file');
-        $file_path =  FCPATH . 'session_id.txt';
-
-        return read_file($file_path);
-	}
 
 	public function index()
 	{
