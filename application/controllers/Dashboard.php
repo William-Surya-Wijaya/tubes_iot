@@ -23,9 +23,6 @@ class Dashboard extends CI_Controller {
         // Load the model in the constructor
         $this->load->model('My_model');
 
-		if(!$this->session->userdata('username')){
-			redirect('auth');
-		}
     }
 
 	public function setSessionId() {
@@ -45,6 +42,10 @@ class Dashboard extends CI_Controller {
 		$data['dataList'] = $dataList;
 		$data['dataListLengkap'] = $dataListLengkap;
 		$this->load->view('dashboard',$data);
+
+		if(!$this->session->userdata('username')){
+			redirect('auth');
+		}
 	}
 	//Saat proses
 	public function proses(){
