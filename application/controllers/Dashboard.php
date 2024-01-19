@@ -110,7 +110,7 @@ class Dashboard extends CI_Controller {
 		$value['emgValue'] = $this->input->post('emgValue');
         $value['emgTime'] = $this->input->post('emgTime');
 		//ambil id_user dari session
-		$session['id_user'] = '3';
+		$session['id_user'] = '3'; //!!!!!!!!!!!!!!!!!!!!!
 		$query = $this->db->query("SELECT MAX(id) AS max_id FROM dataPercobaan");
 		$session['id_percobaan'] = $query->row()->max_id;
 		$query = $this->db->query("SELECT id_exercise, id_muscle FROM sementara ORDER BY id DESC LIMIT 1");

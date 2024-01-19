@@ -292,7 +292,7 @@
 
   const fetchTimer = setTimeout(function() {
   stopFetchAndRedirect();
-}, 60000);
+}, 40000);
 
 // function to stop fetch data after 60 seconds and redirect
 function stopFetchAndRedirect() {
@@ -356,7 +356,7 @@ function updateFetchFlag() {
   );
 
   // Mengatur interval untuk memperbarui data setiap 5 detik (sesuaikan sesuai kebutuhan Anda)
-  setInterval(updateChartData, 1000);
+  setInterval(updateChartData, 500);
 </script>
 
 </body>

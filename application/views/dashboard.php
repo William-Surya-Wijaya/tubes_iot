@@ -140,6 +140,7 @@
                           10 => "Standard Squat",
                           11 => "Bulgarian Squat",
                           12 => "Pike Push Up",
+                          13 => "Bicep Curl",
                         ];
                         foreach ($option_exercise as $key => $value) {
                           echo "<option value='" . $key . "'>" . $value . "</option>";
@@ -213,8 +214,8 @@
                   echo "<p >Otot: " . $value['muscle'] . "</P>";
                   echo "<p i>Exercise: " . $value['exercise'] . "</P>";
                   echo "<p >Rata-rata Value: " . $value['rata_rata'] . "</P>";
-                  //jika keefektivan > 150
-                  if ($value['rata_rata'] > 150) {
+                  //jika keefektivan > 365
+                  if ($value['rata_rata'] > 365) {
                     echo "<p >Keefektivitasan: <span class='text-success'>" . "Efektif" . "</span></P>";
                   } else {
                     echo "<p >Keefektivitasan: <span class='text-danger'>" . "Tidak Efektif" . "</span></P>";
